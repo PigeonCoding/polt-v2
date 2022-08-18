@@ -11,6 +11,7 @@ create a `content` folder in the `backend` directory
 put all your videos in folders with names matching the content
 
 example:
+
 **backend>directory>(name of th serie/anime)>(episodes i recommand naming the episodes with their number)**
 
 first run:
