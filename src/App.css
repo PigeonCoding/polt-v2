@@ -1,0 +1,39 @@
+body{
+    background-color: #262829;
+}
+
+.mainButton{
+    text-align: center;
+    margin: 10px;
+}
+
+.gridButton{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+
+}
+
+.title{
+    text-align: center;
+    color: whitesmoke;
+}
+
+.But{
+    background-color: rgb(68, 67, 67);
+    border: none;
+    border-radius: 3px;
+    font-size:small;
+    color: whitesmoke;
+    margin-right: 5px;
+    transition: all 0.1s ease;
+}
+
+.But:hover{
+    transform: scale(103%);
+}
+
+.vid{
+    text-align: center;
+}
+
