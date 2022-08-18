@@ -12,7 +12,9 @@ put all your videos in folders with names matching the content
 
 example:
 
-**backend>directory>(name of th serie/anime)>(episodes i recommand naming the episodes with their number)**
+**main directory>backend>content>(name of th serie/anime)>(episodes i recommand naming the episodes with their number)**
+
+for cover art put a .jpg image inside the corresponding folder  
 
 first run:
 `npm install`
@@ -24,4 +26,5 @@ node server.js
 ```
 
 or alternativly run the `polt-V2.bat/polt-V2.sh` file in the main directory
+
 
