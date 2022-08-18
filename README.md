@@ -5,7 +5,7 @@ it's not perfect but it works
 
 ## how to use
 
-create a **content** folder in the backend directory
+create a **content** folder in the **backend** directory
 put all your videos in folders with names matching the content
 first run:
 `npm install`
