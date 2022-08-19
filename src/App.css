@@ -8,6 +8,8 @@ body{
 }
 
 .gridButton{
+    width: 99%;
+    margin-left: 5px;
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -25,8 +27,9 @@ body{
     border-radius: 3px;
     font-size:small;
     color: whitesmoke;
-    margin-right: 5px;
-    transition: all 0.1s ease;
+    /* margin-left: 5px; */
+    margin: 0 10px;
+    transition: all 0.1s linear;
 }
 
 .But:hover{
