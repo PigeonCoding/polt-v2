@@ -21,8 +21,6 @@ const writethings = (content, file) => {
   )
 }
 
-// writethings(JSON.stringify({address: "http://"+ arr + ":" + 9000}), "consfig.json")
-
 app.use(cors())
 app.use(express.static(path.join(__dirname, '../build')));
 
@@ -54,7 +52,6 @@ app.get("*", (res, req) => {
   };
 
   let aa = (res.url).split("/")
-  // console.log(aa)
 
   if(aa[1] == "content"){
     req.sendFile("/content/"+ aa[2] + "/" + aa[3],options )
