@@ -4,8 +4,7 @@ import { v4 as uuid } from 'uuid';
 import "../App.css"
 
 let ran = false
-let ok = false
-const adress = "http://192.168.1.40:9000"
+const adress = "http://localhost:9000"
 
 const client = axios.create({
   baseURL: adress
@@ -27,9 +26,9 @@ const ButtonList = () => {
   const imgRef = useRef(null)
   const titleRef = useRef(null)
  
-  if (!ran){client.get("/animeList").then((response) => {setAnim(response.data);ran = true;ok = true})}
-  if (ran){console.log(anim)}
-  {if (ok) {return (
+  if (!ran){client.get("/animeList").then((response) => {setAnim(response.data);ran = true})}
+  // if (ran){console.log(anim)}
+  return (
     <div>
       <h3 className='title' ref={titleRef}> </h3>
       {<div className='gridButton'>
@@ -59,8 +58,8 @@ const ButtonList = () => {
         </div>}
       <div className='vid'><video ref={vidRef} controls={true} src="" width={0} height={0}></video></div>
     </div>
-  ) } else{return <div></div>}
-}}
+  ) 
+}
 
 export default ButtonList
 

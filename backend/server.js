@@ -21,7 +21,7 @@ const writethings = (content, file) => {
   )
 }
 
-writethings(JSON.stringify({address: "http://"+ arr + ":" + 9000}), "consfig.json")
+// writethings(JSON.stringify({address: "http://"+ arr + ":" + 9000}), "consfig.json")
 
 app.use(cors())
 app.use(express.static(path.join(__dirname, '../build')));
