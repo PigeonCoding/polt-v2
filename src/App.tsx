@@ -2,6 +2,16 @@ import React, { useRef } from 'react';
 import './App.css';
 import ButtonList from './component/ButtonList';
 
+// class App extends React.Component {
+
+  
+
+//   render() {
+
+    
+  
+// }
+
 const App = () => {
   const buttRef = useRef(null)
 
@@ -16,6 +26,7 @@ const App = () => {
             polt
           </button>
         </div> 
+        {/* <button onClick={(e) => {buttRef.current.alll()}} >hello</button> */}
         <ButtonList ref={buttRef}/>
       </div>
     );

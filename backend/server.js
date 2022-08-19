@@ -9,6 +9,20 @@ var app = express()
 var networkInterfaces = os.networkInterfaces();
 var arr = networkInterfaces['Wi-Fi'][1].address
 
+const writethings = (content, file) => {
+  fs.writeFileSync(file, content, (err) => {
+          if (err) {
+              console.log(err)
+          }
+          else{
+              console.log()
+          }
+      }
+  )
+}
+
+// writethings(JSON.stringify({address: "http://"+ arr + ":" + 9000}), "consfig.json")
+
 app.use(cors())
 app.use(express.static(path.join(__dirname, '../build')));
 
@@ -56,17 +70,7 @@ app.listen(9000, function () {
 
 let folders = []
 
-const writethings = (content) => {
-    fs.writeFileSync("./anime.json", content, (err) => {
-            if (err) {
-                console.log(err)
-            }
-            else{
-                console.log()
-            }
-        }
-    )
-}
+
 
 const fetch = () =>{  fs.readdir("./content", (err, files) => 
         {
@@ -111,7 +115,7 @@ const fetch = () =>{  fs.readdir("./content", (err, files) =>
                                         {
                                             show.cover = ss
                                         }
-                                        writethings(JSON.stringify(folders))        
+                                        writethings(JSON.stringify(folders), "./anime.json")        
                                         }
                                     )
                                 }
