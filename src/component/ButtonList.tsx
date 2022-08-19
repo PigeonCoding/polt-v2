@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, forwardRef, useImperativeHandle } from 'react'
 import { v4 as uuid } from 'uuid';
 import "../App.css"
 
@@ -20,12 +20,28 @@ const Folder = (hello:any, setAnim:any) => {
   setAnim(episodes)
 }
 
-const ButtonList = () => {
+
+const ButtonList = forwardRef((props, ref) => {
   const [anim, setAnim] = useState<[]>([])
   const vidRef = useRef(null)
   const imgRef = useRef(null)
   const titleRef = useRef(null)
- 
+  
+  useImperativeHandle(ref, () => ({
+
+    alll() {
+
+      ran = false;
+      setAnim([])
+      titleRef.current.textContent = ""
+      vidRef.current.src = ''
+      vidRef.current.height = 0;
+      vidRef.current.width = 0;
+
+    },
+
+  }))
+
   if (!ran){client.get("/animeList").then((response) => {setAnim(response.data);ran = true})}
   // if (ran){console.log(anim)}
   return (
@@ -59,7 +75,8 @@ const ButtonList = () => {
       <div className='vid'><video ref={vidRef} controls={true} src="" width={0} height={0}></video></div>
     </div>
   ) 
-}
+})
+  
 
 export default ButtonList
 
