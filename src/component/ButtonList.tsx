@@ -1,12 +1,13 @@
 import axios from 'axios';
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, forwardRef, useImperativeHandle } from 'react'
 import { v4 as uuid } from 'uuid';
 import "../App.css"
 
 let ran = false
+const adress = "http://localhost:9000"
 
 const client = axios.create({
-  baseURL: "http://192.168.1.40:9000" 
+  baseURL: adress
 });
 
 const Folder = (hello:any, setAnim:any) => {
@@ -19,44 +20,63 @@ const Folder = (hello:any, setAnim:any) => {
   setAnim(episodes)
 }
 
-const ButtonList = () => {
+
+const ButtonList = forwardRef((props, ref) => {
   const [anim, setAnim] = useState<[]>([])
   const vidRef = useRef(null)
   const imgRef = useRef(null)
   const titleRef = useRef(null)
- 
+  
+  useImperativeHandle(ref, () => ({
+
+    alll() {
+
+      ran = false;
+      setAnim([])
+      titleRef.current.textContent = ""
+      vidRef.current.src = ''
+      vidRef.current.height = 0;
+      vidRef.current.width = 0;
+
+    },
+
+  }))
 
   if (!ran){client.get("/animeList").then((response) => {setAnim(response.data);ran = true})}
-    
+  // if (ran){console.log(anim)}
   return (
     <div>
       <h3 className='title' ref={titleRef}> </h3>
-      <div className='gridButton'>
+      {<div className='gridButton'>
         {anim.map((c: {cover: any, name: any , episodes: any[], isfile: boolean, anime:string, img:any}) => 
-            
+           
             <button className='But' key={uuid()} onClick={(e) => {
+
               if (c.isfile) {
-                vidRef.current.src = "http://192.168.1.40:9000/content/"+c.anime+"/"+c.name;
+                vidRef.current.src = adress + "/content/" + c.anime +"/" +c.name;
                 
                 vidRef.current.height = 720 / 2;
                 vidRef.current.width = 1280 / 2;
               }
-              else{                
+              else{
+                
+                console.log(c)                
                 Folder(c, setAnim)
                 titleRef.current.textContent = c.name
-                // imgRef.current.src = "http://192.168.1.40:9000/content/"+c.anime+"/"+c.cover;
               }
             }}>
-              {!c.isfile && <img alt='' ref={imgRef} height={195+20} width={138+20} src={"http://192.168.1.40:9000/content/"+c.name+"/"+c.cover}/>}
+              {!c.isfile && <img alt='' ref={imgRef} height={195+20} width={138+20} src={adress + "/content/" + c.name+ "/"  + c.cover}/>}
               {!c.isfile && <br/>}
               {c.name}
+              
             </button>
         )}
-        </div>
+        </div>}
       <div className='vid'><video ref={vidRef} controls={true} src="" width={0} height={0}></video></div>
     </div>
-  )
-}
+  ) 
+})
+  
 
 export default ButtonList
 
