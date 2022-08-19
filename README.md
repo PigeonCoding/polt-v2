@@ -19,12 +19,19 @@ for cover art put a .jpg image inside the corresponding folder
 first run:
 `npm install`
 
-then run: 
+then run the frontend: 
+```
+npm start
+```
+then to run the backend:
 ```
 cd ./backend
 node server.js
 ```
-
-or alternativly run the `polt-V2.bat/polt-V2.sh` file in the main directory
+if you want a command to do it all run
+```
+npm build
+```
+then you will be able to run the `polt-V2.bat/polt-V2.sh` file in the main directory to launch both
 
 
