@@ -8,8 +8,8 @@ const App = () => {
 
     return (
       <div className="App">
-        <div className='mainButton'>
-          <button   onClick={(e) => {
+        <div className='butContain'>
+          <button className='mainButton'  onClick={(e) => {
             // window.location.reload()
             buttRef.current.alll()
             }}>

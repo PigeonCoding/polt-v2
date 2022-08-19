@@ -2,10 +2,14 @@ body{
     background-color: #262829;
 }
 
-.mainButton{
+.butContain{
     text-align: center;
     margin: 10px;
+}
+
+.mainButton{
     transition: all 0.1s linear;
+    font-size: small;
 }
 
 .mainButton:hover{
