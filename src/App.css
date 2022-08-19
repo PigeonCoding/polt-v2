@@ -5,6 +5,11 @@ body{
 .mainButton{
     text-align: center;
     margin: 10px;
+    transition: all 0.1s linear;
+}
+
+.mainButton:hover{
+    transform: scale(103%);
 }
 
 .gridButton{
