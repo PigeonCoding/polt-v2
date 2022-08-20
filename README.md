@@ -19,6 +19,9 @@ for cover art put a .jpg image inside the corresponding folder
 first run:
 `npm install`
 
+then replace the **adress** constant in the buttonlist.tsx file to the ip address of your server
+you can find it by running the server.js to find out the ip if you don't know it
+
 then run the frontend: 
 ```
 npm start
