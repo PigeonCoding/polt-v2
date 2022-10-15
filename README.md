@@ -1,4 +1,4 @@
-# polt-V2
+<h1 align="center">polt-V2</h1>
 
 this is just a project i made to learn react and a nodejs in general
 it's not perfect but it works
