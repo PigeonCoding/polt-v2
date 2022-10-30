@@ -7,7 +7,7 @@ var os = require( 'os' )
 var app = express()
 
 var networkInterfaces = os.networkInterfaces();
-var arr = networkInterfaces['wlo1'][0].address;
+var arr = networkInterfaces['Wi-Fi'][1].address;
 
 const writethings = (content, file) => {
   fs.writeFileSync(file, content, (err) => {
