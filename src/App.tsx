@@ -9,13 +9,13 @@ const App = () => {
     return (
       <div className="App">
         <div className='butContain'>
-          <button className='mainButton'  onClick={() => {
+          <button className='mainButton'  onClick={(e) => {
             // window.location.reload()
             buttRef.current.alll()
             }}>
             polt
           </button>
-        </div>
+        </div> 
         <ButtonList ref={buttRef}/>
       </div>
     );

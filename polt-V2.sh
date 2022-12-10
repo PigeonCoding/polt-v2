@@ -1,2 +1,2 @@
-cd ./backend
+cd .\backend
 node server.js

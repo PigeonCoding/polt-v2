@@ -1,2 +1,2 @@
 cd .\backend
-node serverWin.js
+node server.js
