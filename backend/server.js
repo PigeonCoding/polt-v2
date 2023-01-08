@@ -7,7 +7,8 @@ var os = require( 'os' )
 var app = express()
 
 var networkInterfaces = os.networkInterfaces();
-var arr = networkInterfaces['Wi-Fi'][1].address
+// console.log(networkInterfaces);
+var arr = networkInterfaces['wlan0'][1].address
 
 const writethings = (content, file) => {
   fs.writeFileSync(file, content, (err) => {
@@ -44,7 +45,7 @@ app.get("/", (res, req) => {
     req.sendFile("../build/index.html", options)
   })
 
- 
+
 app.get("*", (res, req) => {
 
   var options = {
@@ -58,7 +59,7 @@ app.get("*", (res, req) => {
   }else{
     req.send("helo")
   }
- 
+
 })
 
 app.listen(9000, function () {
@@ -69,20 +70,20 @@ let folders = []
 
 
 
-const fetch = () =>{  fs.readdir("./content", (err, files) => 
+const fetch = () =>{  fs.readdir("./content", (err, files) =>
         {
             folders = []
-                if (err) 
+                if (err)
                 {
                     console.log(err)
                 }
-                else 
+                else
                 {
-                    files.forEach(file => 
+                    files.forEach(file =>
                     {
                         let anim = {}
-                        
-                        if (path.extname(file) == "") 
+
+                        if (path.extname(file) == "")
                         {
                             anim.name = file
                             anim.episodes = []
@@ -91,10 +92,10 @@ const fetch = () =>{  fs.readdir("./content", (err, files) =>
                         folders.push(anim)
                     }
                     );
-                    
-                    folders.forEach(show => 
+
+                    folders.forEach(show =>
                     {
-                            fs.readdir("./content/" + show.name, (err, eps) => 
+                            fs.readdir("./content/" + show.name, (err, eps) =>
                             {
                                 if (err)
                                 {
@@ -102,7 +103,7 @@ const fetch = () =>{  fs.readdir("./content", (err, files) =>
                                 }
                                 else
                                 {
-                                    eps.forEach(ss => 
+                                    eps.forEach(ss =>
                                     {
                                         if( path.extname(ss) == ".mp4")
                                         {
@@ -112,16 +113,16 @@ const fetch = () =>{  fs.readdir("./content", (err, files) =>
                                         {
                                             show.cover = ss
                                         }
-                                        writethings(JSON.stringify(folders), "./anime.json")        
+                                        writethings(JSON.stringify(folders), "./anime.json")
                                         }
                                     )
                                 }
                             }
                         )
-                        
+
                     }
                 )
-            }   
+            }
         }
     )
 }

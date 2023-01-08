@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import './App.css';
 import ButtonList from './component/ButtonList';
 
@@ -9,13 +9,13 @@ const App = () => {
     return (
       <div className="App">
         <div className='butContain'>
-          <button className='mainButton'  onClick={(e) => {
+          <button className='mainButton'  onClick={() => {
             // window.location.reload()
             buttRef.current.alll()
             }}>
             polt
           </button>
-        </div> 
+        </div>
         <ButtonList ref={buttRef}/>
       </div>
     );
